@@ -3,6 +3,9 @@ return {
   { "projekt0n/github-nvim-theme", name = "github-theme", lazy = false, priority = 1000 },
   { "LazyVim/LazyVim", opts = { colorscheme = "github_dark_default" } },
 
+  -- Show the leader as "SPC" in the which-key title instead of a space-bar icon.
+  { "folke/which-key.nvim", opts = { icons = { keys = { Space = "SPC " } } } },
+
   -- Edit the file system like a buffer. "-" opens the parent directory.
   -- Renames go through the LSP, so imports update like VSCode's updateImportsOnFileMove.
   {
