@@ -24,5 +24,6 @@
   "news": {
     "NEWS.md": "11866"
   },
-  "version": 8
+  "version": 8,
+  "install_version": 8
 }
