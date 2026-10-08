@@ -30,3 +30,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b[ev.buf].autoformat = false
   end,
 })
+
+-- The start screen is an ordinary buffer, so the mouse wheel could scroll it
+-- off screen. Keep it still.
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("dashboard_no_scroll", { clear = true }),
+  pattern = "snacks_dashboard",
+  callback = function(ev)
+    for _, key in ipairs({ "<ScrollWheelUp>", "<ScrollWheelDown>" }) do
+      vim.keymap.set({ "n", "v" }, key, "<Nop>", { buffer = ev.buf })
+    end
+  end,
+})
