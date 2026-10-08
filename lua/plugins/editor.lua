@@ -59,6 +59,17 @@ return {
 
   -- Run Claude Code in a Ghostty split, not inside nvim. Start `claude` in the
   -- same directory and run /ide to connect; diffs still open here for review.
-  -- Load at startup so the /ide server is up before the first keypress.
-  { "coder/claudecode.nvim", lazy = false, opts = { terminal = { provider = "none" } } },
+  -- Load at startup so the /ide server is up before the first keypress. Claude runs
+  -- in your own split, so drop the keys that open or focus a Claude terminal here.
+  {
+    "coder/claudecode.nvim",
+    lazy = false,
+    opts = { terminal = { provider = "none" } },
+    keys = {
+      { "<leader>ac", false },
+      { "<leader>af", false },
+      { "<leader>ar", false },
+      { "<leader>aC", false },
+    },
+  },
 }
